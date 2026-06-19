@@ -4,6 +4,17 @@
 window.WC = {
   live: { stage: "Semi-finals", day: "Day 26", goals: 198, cards: 322, time: "20:41" },
 
+  // Settled tournament results — the source of truth the scoring engine reads.
+  // Edit these as the tournament resolves; standings recompute automatically.
+  results: {
+    winner: "France",          // lifts the trophy
+    topScorer: "Mbappé",       // golden boot
+    englandExit: "Semi",       // round England actually went out
+    goals: 205,                // final tournament goal tally
+    cards: 355,                // final tournament card tally
+    darkHorseQF: ["Spain", "France", "England", "Brazil", "Morocco", "Japan"], // teams that reached QF or beyond
+  },
+
   // core five
   people: [
     { name: "Angus", init: "AN", tone: "red" },

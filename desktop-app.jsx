@@ -193,7 +193,7 @@ function App() {
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
   const pat = PAT[t.banner] || 'lozenge';
   const people = t.morePlayers ? window.WC.people.concat(window.WC.extra) : window.WC.people;
-  const table = t.morePlayers ? window.WC.table7 : window.WC.table;
+  const table = window.Scoring.standings(people);
 
   return (
     <div className="stage">
