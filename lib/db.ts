@@ -50,6 +50,13 @@ export async function initSchema(): Promise<void> {
       status      TEXT,
       updated_at  TIMESTAMPTZ NOT NULL DEFAULT now()
     )`;
+  // Small key/value store — e.g. a manual card total when no live source exists.
+  await sql`
+    CREATE TABLE IF NOT EXISTS settings (
+      key         TEXT PRIMARY KEY,
+      value       TEXT,
+      updated_at  TIMESTAMPTZ NOT NULL DEFAULT now()
+    )`;
 }
 
 export interface MatchRow {
@@ -121,4 +128,25 @@ export async function getCardFixtureIds(): Promise<Set<number>> {
   const sql = db();
   const rows = (await sql`SELECT fixture_id FROM fixture_cards`) as { fixture_id: number }[];
   return new Set(rows.map((r) => r.fixture_id));
+}
+
+// Manual card total override (used while there's no live card source for 2026).
+export async function getManualCards(): Promise<number | null> {
+  const sql = db();
+  try {
+    const rows = (await sql`SELECT value FROM settings WHERE key = 'manual_cards_total'`) as { value: string }[];
+    if (!rows.length) return null;
+    const n = parseInt(rows[0].value, 10);
+    return Number.isFinite(n) ? n : null;
+  } catch {
+    return null; // settings table may not exist yet on a fresh DB
+  }
+}
+
+export async function setManualCards(total: number): Promise<void> {
+  const sql = db();
+  await sql`
+    INSERT INTO settings (key, value, updated_at)
+    VALUES ('manual_cards_total', ${String(total)}, now())
+    ON CONFLICT (key) DO UPDATE SET value = EXCLUDED.value, updated_at = now()`;
 }
