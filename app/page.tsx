@@ -30,13 +30,13 @@ function Banner({ d }: { d: Dashboard }) {
           <div className="banner__mark">
             <img
               src="/sweeper-icon.png"
-              alt="Sweeper"
+              alt="Timmy Tickle's One-Ball Bonanza"
               width={64}
               height={64}
               style={{ width: 64, height: 64, borderRadius: "50%", objectFit: "cover", border: "3px solid var(--ink)", background: "#fff", flex: "0 0 auto" }}
             />
             <div>
-              <div className="banner__word">Sweeper</div>
+              <div className="banner__word" style={{ fontSize: 44, lineHeight: 1 }}>Timmy Tickle&apos;s One-Ball Bonanza</div>
               <div className="banner__tag">World Cup Sweepstake · 2026 · Live</div>
             </div>
           </div>

@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "../desktop.css";
 
 export const metadata: Metadata = {
-  title: "Sweeper — World Cup Pool",
+  title: "Timmy Tickle's One-Ball Bonanza",
   description: "Live, authoritative standings for the World Cup sweepstake.",
 };
 
