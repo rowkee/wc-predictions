@@ -52,11 +52,11 @@ function LiveValues({ d }: { d: Dashboard }) {
   const dh = r.darkHorseQF.length ? r.darkHorseQF.slice(0, 3).join(" · ") : "TBD";
   const cards: { cat: string; tone: string; Icon: typeof Ball; value: React.ReactNode; note: string }[] = [
     { cat: "Winner", tone: "blue", Icon: Ball, value: r.winner ?? "TBD", note: r.winner ? "champions" : "still to be decided" },
-    { cat: "Goals", tone: "gold", Icon: Pretzel, value: r.goals ?? "—", note: "and counting" },
-    { cat: "Cards", tone: "red", Icon: Sausage, value: r.cards ?? "—", note: r.cards != null ? "and counting" : "no live source" },
-    { cat: "Top scorer", tone: "green", Icon: Stein, value: r.topScorer ?? "—", note: d.topScorerGoals != null ? `${d.topScorerGoals} goals` : "" },
+    { cat: "Goals", tone: "blue", Icon: Pretzel, value: r.goals ?? "—", note: "and counting" },
+    { cat: "Cards", tone: "blue", Icon: Sausage, value: r.cards ?? "—", note: r.cards != null ? "and counting" : "no live source" },
+    { cat: "Top scorer", tone: "blue", Icon: Stein, value: r.topScorer ?? "—", note: d.topScorerGoals != null ? `${d.topScorerGoals} goals` : "" },
     { cat: "Dark horses", tone: "blue", Icon: Pretzel, value: dh, note: "reached QF+" },
-    { cat: "England exit", tone: "red", Icon: Ball, value: r.englandExit ?? "Still in", note: r.englandExit ? "out" : "still standing" },
+    { cat: "England exit", tone: "blue", Icon: Ball, value: r.englandExit ?? "Still in", note: r.englandExit ? "out" : "still standing" },
   ];
   return (
     <div className="vgrid">
