@@ -28,7 +28,13 @@ function Banner({ d }: { d: Dashboard }) {
       <div className="banner__loz lozenge">
         <div className="banner__inner">
           <div className="banner__mark">
-            <Ball size={64} color="#fff" />
+            <img
+              src="/sweeper-icon.png"
+              alt="Sweeper"
+              width={64}
+              height={64}
+              style={{ width: 64, height: 64, borderRadius: "50%", objectFit: "cover", border: "3px solid var(--ink)", background: "#fff", flex: "0 0 auto" }}
+            />
             <div>
               <div className="banner__word">Sweeper</div>
               <div className="banner__tag">World Cup Sweepstake · 2026 · Live</div>
