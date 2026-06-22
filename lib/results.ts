@@ -90,6 +90,7 @@ export interface Dashboard {
   recent: FeedMatch[];
   finishedCount: number;
   totalMatches: number;
+  topScorerGoals: number | null;
 }
 
 // One-pass fetch for the dashboard page: results + a recent-results feed.
@@ -107,5 +108,10 @@ export async function getDashboard(): Promise<Dashboard> {
       stage: m.stage, home: m.home_team, away: m.away_team,
       hg: m.home_goals, ag: m.away_goals, date: m.utc_date,
     }));
-  return { results, recent, finishedCount: finished.length, totalMatches: matches.length };
+  return {
+    results, recent,
+    finishedCount: finished.length,
+    totalMatches: matches.length,
+    topScorerGoals: scorers[0]?.goals ?? null,
+  };
 }
