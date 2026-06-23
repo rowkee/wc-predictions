@@ -31,9 +31,9 @@ function Banner({ d }: { d: Dashboard }) {
             <img
               src="/sweeper-icon.png"
               alt="Timmy Tickle's One-Ball Bonanza"
-              width={64}
-              height={64}
-              style={{ width: 64, height: 64, borderRadius: "50%", objectFit: "cover", border: "3px solid var(--ink)", background: "#fff", flex: "0 0 auto" }}
+              width={96}
+              height={96}
+              style={{ width: 96, height: 96, borderRadius: "50%", objectFit: "cover", border: "3px solid var(--ink)", background: "#fff", flex: "0 0 auto" }}
             />
             <div>
               <div className="banner__word" style={{ fontSize: 60, lineHeight: 1 }}>Timmy Tickle&apos;s One-Ball Bonanza</div>
@@ -44,7 +44,7 @@ function Banner({ d }: { d: Dashboard }) {
               <img
                 src="https://img.buymeacoffee.com/button-api/?text=Don%27t%20be%20a%20prick&emoji=&slug=rowpkee&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00"
                 alt="Buy Me A Coffee"
-                style={{ height: 50, width: "auto" }}
+                style={{ height: 32, width: "auto" }}
               />
             </a>
           </div>
