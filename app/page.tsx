@@ -39,6 +39,15 @@ function Banner({ d }: { d: Dashboard }) {
               <div className="banner__word" style={{ fontSize: 60, lineHeight: 1 }}>Timmy Tickle&apos;s One-Ball Bonanza</div>
             </div>
           </div>
+          <div className="banner__live">
+            <a href="https://www.buymeacoffee.com/rowpkee" target="_blank" rel="noopener noreferrer">
+              <img
+                src="https://img.buymeacoffee.com/button-api/?text=Don%27t%20be%20a%20prick&emoji=&slug=rowpkee&button_colour=5F7FFF&font_colour=ffffff&font_family=Cookie&outline_colour=000000&coffee_colour=FFDD00"
+                alt="Buy Me A Coffee"
+                style={{ height: 50, width: "auto" }}
+              />
+            </a>
+          </div>
         </div>
       </div>
       <Garland />
