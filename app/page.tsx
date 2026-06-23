@@ -5,7 +5,7 @@
 
 import { PEOPLE, ALL_PLAYERS, PICKS, MAD_SHIT, type Player } from "@/lib/pool";
 import { getDashboard, type Dashboard } from "@/lib/results";
-import { Garland } from "@/components/art";
+import { Stein, Sausage, Garland } from "@/components/art";
 
 export const dynamic = "force-dynamic";
 
