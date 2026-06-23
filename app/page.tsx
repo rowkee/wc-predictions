@@ -3,7 +3,6 @@
 // server-side and is available at /api/standings; this view focuses on the
 // live state + everyone's calls.
 
-import Script from "next/script";
 import { PEOPLE, ALL_PLAYERS, PICKS, MAD_SHIT, type Player } from "@/lib/pool";
 import { getDashboard, type Dashboard } from "@/lib/results";
 import { Stein, Pretzel, Sausage, Ball, Garland } from "@/components/art";
@@ -39,21 +38,6 @@ function Banner({ d }: { d: Dashboard }) {
             <div>
               <div className="banner__word" style={{ fontSize: 60, lineHeight: 1 }}>Timmy Tickle&apos;s One-Ball Bonanza</div>
             </div>
-          </div>
-          <div className="banner__live">
-            <Script
-              src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
-              data-name="bmc-button"
-              data-slug="rowpkee"
-              data-color="#5F7FFF"
-              data-emoji=""
-              data-font="Cookie"
-              data-text="Don't be a prick"
-              data-outline-color="#000000"
-              data-font-color="#ffffff"
-              data-coffee-color="#FFDD00"
-              strategy="lazyOnload"
-            />
           </div>
         </div>
       </div>
