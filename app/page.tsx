@@ -39,11 +39,6 @@ function Banner({ d }: { d: Dashboard }) {
               <div className="banner__word" style={{ fontSize: 60, lineHeight: 1 }}>Timmy Tickle&apos;s One-Ball Bonanza</div>
             </div>
           </div>
-          <div className="banner__live">
-            <div className="k">Goals so far</div>
-            <div className="v">{d.results.goals ?? "—"}</div>
-            <div className="t">{d.finishedCount}/{d.totalMatches} played</div>
-          </div>
         </div>
       </div>
       <Garland />
