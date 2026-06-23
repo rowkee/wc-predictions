@@ -5,7 +5,7 @@
 
 import { PEOPLE, ALL_PLAYERS, PICKS, MAD_SHIT, type Player } from "@/lib/pool";
 import { getDashboard, type Dashboard } from "@/lib/results";
-import { Stein, Pretzel, Sausage, Ball, Garland } from "@/components/art";
+import { Garland } from "@/components/art";
 
 export const dynamic = "force-dynamic";
 
@@ -59,13 +59,13 @@ function Banner({ d }: { d: Dashboard }) {
 function LiveValues({ d }: { d: Dashboard }) {
   const r = d.results;
   const dh = r.darkHorseQF.length ? r.darkHorseQF.slice(0, 3).join(" · ") : "TBD";
-  const cards: { cat: string; tone: string; Icon: typeof Ball; value: React.ReactNode; note: string }[] = [
-    { cat: "Winner", tone: "blue", Icon: Ball, value: r.winner ?? "TBD", note: r.winner ? "champions" : "still to be decided" },
-    { cat: "Goals", tone: "blue", Icon: Pretzel, value: r.goals ?? "—", note: "and counting" },
-    { cat: "Cards", tone: "blue", Icon: Sausage, value: r.cards ?? "—", note: r.cards != null ? "and counting" : "no live source" },
-    { cat: "Top scorer", tone: "blue", Icon: Stein, value: r.topScorer ?? "—", note: d.topScorerGoals != null ? `${d.topScorerGoals} goals` : "" },
-    { cat: "Dark horses", tone: "blue", Icon: Pretzel, value: dh, note: "reached QF+" },
-    { cat: "England exit", tone: "blue", Icon: Ball, value: r.englandExit ?? "Still in", note: r.englandExit ? "out" : "still standing" },
+  const cards: { cat: string; tone: string; emoji: string; value: React.ReactNode; note: string }[] = [
+    { cat: "Winner", tone: "blue", emoji: "🏆", value: r.winner ?? "TBD", note: r.winner ? "champions" : "still to be decided" },
+    { cat: "Goals", tone: "blue", emoji: "🥅", value: r.goals ?? "—", note: "and counting" },
+    { cat: "Cards", tone: "blue", emoji: "🟨🟥", value: r.cards ?? "—", note: r.cards != null ? "and counting" : "no live source" },
+    { cat: "Top scorer", tone: "blue", emoji: "⚽️", value: r.topScorer ?? "—", note: d.topScorerGoals != null ? `${d.topScorerGoals} goals` : "" },
+    { cat: "Dark horses", tone: "blue", emoji: "🐎", value: dh, note: "reached QF+" },
+    { cat: "England exit", tone: "blue", emoji: "🏴󠁧󠁢󠁥󠁮󠁧󠁿", value: r.englandExit ?? "Still in", note: r.englandExit ? "out" : "still standing" },
   ];
   return (
     <div className="vgrid">
@@ -73,7 +73,7 @@ function LiveValues({ d }: { d: Dashboard }) {
         <div key={c.cat} className={"panel " + c.tone + " vcard"}>
           <div className="vcard__top">
             <span className="vcard__cat">{c.cat}</span>
-            <c.Icon size={34} rot={-6} />
+            <span style={{ fontSize: 28 }}>{c.emoji}</span>
           </div>
           <div className="vcard__val">{c.value}</div>
           <div className="vcard__note">{c.note}</div>
