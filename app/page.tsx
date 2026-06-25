@@ -3,7 +3,7 @@
 // server-side and is available at /api/standings; this view focuses on the
 // live state + everyone's calls.
 
-import { PEOPLE, ALL_PLAYERS, PICKS, MAD_SHIT, type Player } from "@/lib/pool";
+import { ALL_PLAYERS, PICKS, MAD_SHIT, type Player } from "@/lib/pool";
 import { getDashboard, type Dashboard } from "@/lib/results";
 import { Stein, Sausage, Garland } from "@/components/art";
 
@@ -134,9 +134,8 @@ function SetupCard({ message }: { message: string }) {
   );
 }
 
-export default async function Page({ searchParams }: { searchParams: Promise<{ all?: string }> }) {
-  const { all } = await searchParams;
-  const players = all ? ALL_PLAYERS : PEOPLE;
+export default async function Page() {
+  const players = ALL_PLAYERS;
 
   let dash: Dashboard;
   try {

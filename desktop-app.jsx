@@ -5,7 +5,7 @@ const TONE_BG = { red: '#f6c9c5', blue: '#cfe0f4', green: '#cfe8d4', gold: '#ffe
 const SCORED = window.WC.grid.filter((g) => g.type !== 'display');
 const MAD = window.WC.grid.find((g) => g.type === 'display');
 const ptsOf = (table, n) => { const r = table.find((x) => x.name === n); return r ? r.pts : 0; };
-const find = (n) => window.WC.people.concat(window.WC.extra).find((p) => p.name === n) || {};
+const find = (n) => window.WC.people.find((p) => p.name === n) || {};
 
 function Avatar({ name, size }) {
   const p = find(name);
@@ -182,8 +182,7 @@ function Footer({ pattern }) {
 const TWEAK_DEFAULTS = /*EDITMODE-BEGIN*/{
   "banner": "Blue lozenge",
   "garland": true,
-  "scatter": true,
-  "morePlayers": false
+  "scatter": true
 }/*EDITMODE-END*/;
 
 const PAT = { 'Blue lozenge': 'lozenge', 'Gold stripes': 'stripes', 'Red gingham': 'gingham' };
@@ -192,7 +191,7 @@ function App() {
   const { useTweaks, TweaksPanel, TweakSection, TweakSelect, TweakToggle } = window;
   const [t, setTweak] = useTweaks(TWEAK_DEFAULTS);
   const pat = PAT[t.banner] || 'lozenge';
-  const people = t.morePlayers ? window.WC.people.concat(window.WC.extra) : window.WC.people;
+  const people = window.WC.people;
   const table = window.Scoring.standings(people);
 
   return (
@@ -237,8 +236,6 @@ function App() {
         <TweakSelect label="Banner pattern" value={t.banner} options={Object.keys(PAT)} onChange={(v) => setTweak('banner', v)} />
         <TweakToggle label="Food garland" value={t.garland} onChange={(v) => setTweak('garland', v)} />
         <TweakToggle label="Scatter snacks" value={t.scatter} onChange={(v) => setTweak('scatter', v)} />
-        <TweakSection label="Pool" />
-        <TweakToggle label="Add 2 more players" value={t.morePlayers} onChange={(v) => setTweak('morePlayers', v)} />
       </TweaksPanel>
     </div>
   );

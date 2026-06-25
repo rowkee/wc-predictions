@@ -16,15 +16,10 @@ export const PEOPLE: Player[] = [
   { name: "Hugo", init: "HU", tone: "green" },
   { name: "Tony", init: "TO", tone: "gold" },
   { name: "Rick", init: "RI", tone: "red" },
+  { name: "Josh", init: "JO", tone: "gold" },
 ];
 
-// Surfaced by the "add more players" toggle.
-export const EXTRA: Player[] = [
-  { name: "Dev", init: "DE", tone: "blue" },
-  { name: "Sam", init: "SA", tone: "green" },
-];
-
-export const ALL_PLAYERS = [...PEOPLE, ...EXTRA];
+export const ALL_PLAYERS = PEOPLE;
 
 export type Category =
   | "Winner"
@@ -38,27 +33,27 @@ export type Category =
 export const PICKS: Record<Category, Record<string, string>> = {
   "Winner": {
     Angus: "Spain", Tim: "England", Hugo: "Spain", Tony: "France",
-    Rick: "France", Dev: "Brazil", Sam: "France",
+    Rick: "France", Josh: "France",
   },
   "Top scorer": {
     Angus: "Mbappé", Tim: "Kane", Hugo: "Mbappé", Tony: "Oyarzabal",
-    Rick: "Mbappé", Dev: "Vinícius", Sam: "Kane",
+    Rick: "Mbappé", Josh: "Kane",
   },
   "England exit": {
     Angus: "Last 16", Tim: "Winners", Hugo: "Semi", Tony: "Final",
-    Rick: "Semi", Dev: "Quarters", Sam: "Semi",
+    Rick: "Semi", Josh: "Final",
   },
   "Goals": {
     Angus: "166", Tim: "264", Hugo: "150", Tony: "317",
-    Rick: "184", Dev: "220", Sam: "175",
+    Rick: "184", Josh: "250",
   },
   "Cards": {
     Angus: "250", Tim: "368", Hugo: "200", Tony: "489",
-    Rick: "204", Dev: "300", Sam: "260",
+    Rick: "204", Josh: "400",
   },
   "Dark horse": {
     Angus: "Morocco", Tim: "Ecuador", Hugo: "Norway", Tony: "Japan",
-    Rick: "Norway/Japan", Dev: "Senegal", Sam: "Morocco",
+    Rick: "Norway/Japan", Josh: "Mexico",
   },
 };
 
@@ -69,6 +64,5 @@ export const MAD_SHIT: Record<string, string> = {
   Hugo: "African team in the semi · Ronaldo scores a hat-trick at 40",
   Tony: "Hincapié's bottom is seen again",
   Rick: "I watch more than 5 matches",
-  Dev: "VAR breaks down for 10 minutes",
-  Sam: "A pitch invader scores",
+  Josh: "Trump invades the pitch to lift the trophy himself · MAGA hats distributed in the winners' dressing room",
 };
